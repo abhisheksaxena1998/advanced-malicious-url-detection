@@ -6,7 +6,7 @@ SymbolCountDomain=0
 QueryDigitCount=0
 spcharUrl=0
 url="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"#"http://aneisig.es/vx/hstart.php?id=664&logon=141 "##"https://www.youtube.com/watch?v=dGwau9Vcc0o"#"http://aneisig.es/vx/hstart.php?id=664&logon=141 "#"https://www.google.com/search?q=seach&oq=seach&aqs=chrome..69i57.1308j0j1&sourceid=chrome&ie=UTF-8"#"http://sci-hub.se/https://www.researchgate.net/publication/30836520788_Detecting_Malicious_URLs_Using_Lexical_Analysis"    #input()    
-symbols="://.:/?=,;()]+"
+symbols="://.:/?=,;()]+@"
 for i in range(0,len(url)):
     if (url[4]=='s'):
         url=url.replace('https://','')
@@ -236,6 +236,151 @@ for i in extension:
     if i in digits:
         extensiondigitcount+=1
 print ("extensiondigitcount",extensiondigitcount)        
+
+querydigitcount=0
+for i in o.query:
+    if i in digits:
+        querydigitcount+=1
+if querydigitcount==0:
+    querydigitcount=-1        
+print ("querydigitcount",querydigitcount)     
+
+urlalphabetcount=0
+for i in url:
+    if i in alphabets:
+        urlalphabetcount+=1
+print ("urllettercount",urlalphabetcount)     
+
+domainlettercount=0
+for i in domain:
+    if i in alphabets:
+        domainlettercount+=1
+print ("domainlettercount",domainlettercount)     
+
+Directory_LetterCount=0
+for i in dirname:
+    if i in alphabets:
+        Directory_LetterCount+=1
+print ("Directory_LetterCount",Directory_LetterCount)     
+
+Filename_LetterCount=0
+for i in filename:
+    if i in alphabets:
+        Filename_LetterCount+=1
+print ("Filename_LetterCount",Filename_LetterCount)     
+
+Extension_LetterCount=0
+for i in extension:
+    if i in alphabets:
+        Extension_LetterCount+=1
+print ("Extension_LetterCount",Extension_LetterCount)     
+
+Query_LetterCount=0
+for i in o.query:
+    if i in alphabets:
+        Query_LetterCount+=1
+if Query_LetterCount==0:
+    Query_LetterCount=-1        
+print ("Query_LetterCount",Query_LetterCount)     
+
+lendom=[]
+for i in (domain.split(".")):
+    lendom.append(len(i))
+Domain_LongestWordLength=max(lendom)
+print ("Domain_LongestWordLength",Domain_LongestWordLength)
+
+subdirlongestwordlen=len(subdir)
+print ("subdirlongestwordlen",subdirlongestwordlen)
+
+"""delimeterindomain=0
+for i in domain:
+    if i in symbols:
+        delimeterindomain+=1
+print ("delimeterindomain",delimeterindomain)     """
+
+
+nodig69=0
+for i in extension:
+    if i in digits:
+        nodig69+=1
+numrate_extension=nodig69/len(extension)        
+print ("numrate_extension",numrate_extension)
+
+x=0
+symbolcounturl=0
+for i in temp_url:
+    if i>="a" and i<="z" or i>="0" and i<="9":
+        x+=1
+    else:
+        symbolcounturl+=1
+print ("symbolcounturl",symbolcounturl)        
+            
+symbolcountdom=0
+for i in domain:
+    if i>="a" and i<="z" or i>="0" and i<="9":
+        x+=1
+    else:
+        symbolcountdom+=1
+print ("symbolcountdom",symbolcountdom)      
+
+symbolcountdir=0
+for i in dirname:
+    if i>="a" and i<="z" or i>="0" and i<="9":
+        x+=1
+    else:
+        symbolcountdir+=1
+print ("symbolcountdir",symbolcountdir)      
+
+symbolcountfile=0
+for i in filename:
+    if i>="a" and i<="z" or i>="0" and i<="9":
+        x+=1
+    else:
+        symbolcountfile+=1
+print ("symbolcountfile",symbolcountfile)      
+
+symbolcountext=0
+for i in extension:
+    if i>="a" and i<="z" or i>="0" and i<="9":
+        x+=1
+    else:
+        symbolcountext+=1
+print ("symbolcountext",symbolcountext)      
+
+en_dom=0 
+for i in alphabets:
+    if i in domain:
+        p=domain.count(i)/len(domain)
+        en=-p*math.log10(p)
+        en_dom+=en        
+print ("Entropy_dom",en_dom)
+
+
+en_dir=0 
+for i in alphabets:
+    if i in dirname:
+        p=dirname.count(i)/len(dirname)
+        en=-p*math.log10(p)
+        en_dir+=en        
+print ("Entropy_dir",en_dir)
+
+en_file=0 
+for i in alphabets:
+    if i in filename:
+        p=filename.count(i)/len(filename)
+        en=-p*math.log10(p)
+        en_file+=en        
+print ("Entropy_file",en_file)
+
+en_ext=0 
+for i in alphabets:
+    if i in extension:
+        p=extension.count(i)/len(extension)
+        en=-p*math.log10(p)
+        en_ext+=en        
+print ("Entropy_ext",en_ext)
+
+
 
 """alpha=0
 dig=0
