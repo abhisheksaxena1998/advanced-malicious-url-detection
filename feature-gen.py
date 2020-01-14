@@ -5,7 +5,7 @@ domaintokencount=0
 SymbolCountDomain=0
 QueryDigitCount=0
 spcharUrl=0
-url="https://www.exampleurl.com/info/aboutus.html"#"https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"#"http://aneisig.es/vx/hstart.php?id=664&logon=141 "##"https://www.youtube.com/watch?v=dGwau9Vcc0o"#"http://aneisig.es/vx/hstart.php?id=664&logon=141 "#"https://www.google.com/search?q=seach&oq=seach&aqs=chrome..69i57.1308j0j1&sourceid=chrome&ie=UTF-8"#"http://sci-hub.se/https://www.researchgate.net/publication/30836520788_Detecting_Malicious_URLs_Using_Lexical_Analysis"    #input()    
+url="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"#"http://aneisig.es/vx/hstart.php?id=664&logon=141 "##"https://www.youtube.com/watch?v=dGwau9Vcc0o"#"http://aneisig.es/vx/hstart.php?id=664&logon=141 "#"https://www.google.com/search?q=seach&oq=seach&aqs=chrome..69i57.1308j0j1&sourceid=chrome&ie=UTF-8"#"http://sci-hub.se/https://www.researchgate.net/publication/30836520788_Detecting_Malicious_URLs_Using_Lexical_Analysis"    #input()    
 symbols="://.:/?=,;()]+"
 for i in range(0,len(url)):
     if (url[4]=='s'):
@@ -24,6 +24,7 @@ for i in range(len(url)):
         pos=len(url)
 domain=url[0:pos]
 print (domain)
+
 
 
 o = urlparse(url)
@@ -216,6 +217,25 @@ for i in domain:
         host_DigitCount+=1
 print ("host_DigitCount",host_DigitCount)        
 
+
+Directory_DigitCount=0
+for i in dirname:
+    if i in digits:
+        Directory_DigitCount+=1
+print ("Directory_DigitCount",Directory_DigitCount)        
+
+File_name_DigitCount=0
+for i in filename:
+    if i in digits:
+        File_name_DigitCount+=1
+
+print ("File_name_DigitCount",File_name_DigitCount)
+
+extensiondigitcount=0
+for i in extension:
+    if i in digits:
+        extensiondigitcount+=1
+print ("extensiondigitcount",extensiondigitcount)        
 
 """alpha=0
 dig=0
