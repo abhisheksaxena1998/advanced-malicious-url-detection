@@ -90,8 +90,8 @@ for i in range(len(domain)):
     if domain[i]=='.':
         pos=i
         break
-tld=domain[pos:len(domain)]
-print ("tld",tld," length",len(tld)-1)        
+tld=domain[pos+1:len(domain)]
+print ("tld",tld," length",len(tld))        
 
 for i in domain:
     if i=='.':
